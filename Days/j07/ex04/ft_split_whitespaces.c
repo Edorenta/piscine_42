@@ -2,8 +2,8 @@
 
 char **ft_split_whitespaces(char *str)
 {
-	char	**str_split;
-	char	**str_tmp;
+	char	**dest;
+	char	**tmp;
 	int	i;
 	int	i;
 	int	nb_words;
@@ -12,20 +12,20 @@ char **ft_split_whitespaces(char *str)
 	i = -1;
 	j = 0;
 	while (str[i++])
-		if (str[i] != 9 || str[i] != 32 || str[i] != '\n')
+		if (str[i] != ' ' || str[i] != '\t' || str[i] != '\n')
 			nb_words++;
-	*str_split = (char*)malloc(sizeof(char) * (i + 1));
+	*dest = (char*)malloc(sizeof(char) * (i + 1));
 	i = -1;
 	while (++i < nb_words)
 	{
 		j = 0;
-		while (str[j] != 9 || str[j] != 32 || str[j] != '\n' || str[j] != '\0')
+		while (str[j] != ' ' || str[j] != '\t' || str[j] != '\n' || str[j] != '\0')
 		{
-			str_tmp[j] = str[j];
+			tmp[j] = str[j];
 			i++;
 		}
-		str_split[i] = str_tmp;
+		dest[i] = tmp;
 		i++;
 	}
-	return (str_split);
+	return (dest);
 }
