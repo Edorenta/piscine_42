@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 03:25:42 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/08 05:15:15 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 20:44:18 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/07 20:44:45 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	res;
-	int sign;
+	unsigned int	i;
+	unsigned int	dest_size;
+	unsigned int	src_size;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n') ||
-	(str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
+	while (dest[i] != '\0')
 		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if ((str[i] == '-') || str[i] == '+')
+	dest_size = i;
+	i = 0;
+	while (src[i] != '\0')
 		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	src_size = i;
+	i = 0;
+	while (src[i] != '\0' && ((dest_size + i) < (size - 1)))
 	{
-		res = res * 10 + str[i] - '0';
+		dest[dest_size + i] = src[i];
 		i++;
 	}
-	return (sign * res);
+	dest[dest_size + i] = '\0';
+	return (src_size + ((dest_size < size) ? dest_size : size));
 }

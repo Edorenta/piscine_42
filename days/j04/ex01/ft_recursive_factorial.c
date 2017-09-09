@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/04 15:22:30 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 06:29:47 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/04 15:07:58 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/07 06:08:56 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+int		ft_recursive_factorial(int nb)
 {
-	int	i;
+	int res;
 
-	if ((nb % 2 == 0 && nb != 2) || nb <= 1)
+	if (nb > 12 || nb < 1)
 		return (0);
-	i = 3;
-	while (i * i <= nb)
-	{
-		if ((nb % i) == 0)
-			return (0);
-		i++;
-	}
-	return (1);
+	if (nb >= 2)
+		res = (nb * ft_recursive_factorial(nb - 1));
+	else
+		return (1);
+	return (res);
 }

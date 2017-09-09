@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/04 15:22:30 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 06:29:47 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/05 03:18:03 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/07 22:03:20 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+int		ft_atoi(char *str)
 {
 	int	i;
+	int	res;
+	int sign;
 
-	if ((nb % 2 == 0 && nb != 2) || nb <= 1)
-		return (0);
-	i = 3;
-	while (i * i <= nb)
-	{
-		if ((nb % i) == 0)
-			return (0);
+	i = 0;
+	res = 0;
+	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n') ||
+			(str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
 		i++;
-	}
-	return (1);
+	sign = (str[i] == '-') ? -1 : 1;
+	if ((str[i] == '-') || str[i] == '+')
+		i++;
+	while (str[i++] >= '0' && str[i++] <= '9')
+		res = res * 10 + str[i] - '0';
+	return (sign * res);
 }

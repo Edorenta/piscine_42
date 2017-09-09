@@ -6,11 +6,11 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 12:11:19 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/06 21:20:19 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/08 01:58:32 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putchar(char c);
+int		ft_putchar(char c);
 
 void	ft_putnbr(int nb)
 {

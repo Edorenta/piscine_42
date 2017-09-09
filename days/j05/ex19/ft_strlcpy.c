@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recursive_factorial.c                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/04 15:07:58 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/06 06:42:01 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 21:10:55 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/07 21:11:26 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_factorial(int nb)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int res;
+	char			*d;
+	char			*s;
+	unsigned int	n;
 
-	if (nb > 12 || nb < 0)
-		return (0);
-	if (nb >= 2)
-		res = (nb * ft_recursive_factorial(nb - 1));
-	else
-		return (1);
-	return (res);
+	d = dest;
+	s = src;
+	n = size;
+	if (n != 0)
+	{
+		while (!--n)
+		{
+			if ((*d++ = *s++) == '\0')
+				break ;
+		}
+	}
+	if (n == 0 && size != 0)
+		*d = '\0';
+	while (*s)
+		s++;
+	return (s - src);
 }

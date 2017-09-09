@@ -6,11 +6,11 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 21:10:24 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/06 21:10:59 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/07 06:41:14 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putchar(char c);
+int		ft_putchar(char c);
 
 void	ft_print_space(void)
 {

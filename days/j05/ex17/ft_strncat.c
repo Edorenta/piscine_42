@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/04 15:22:30 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 06:29:47 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 20:43:09 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/07 20:43:14 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+char	*ft_strncat(char *dest, char *src, int nb)
 {
 	int	i;
+	int	j;
 
-	if ((nb % 2 == 0 && nb != 2) || nb <= 1)
-		return (0);
-	i = 3;
-	while (i * i <= nb)
-	{
-		if ((nb % i) == 0)
-			return (0);
+	i = 0;
+	while (dest[i] != '\0')
 		i++;
+	j = 0;
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (1);
+	dest[i] = '\0';
+	return (dest);
 }
