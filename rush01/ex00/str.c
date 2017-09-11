@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_next_prime.c                                 :+:      :+:    :+:   */
+/*   str.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: geargenc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 06:35:16 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 06:29:10 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/09 21:46:06 by geargenc          #+#    #+#             */
+/*   Updated: 2017/09/09 21:48:12 by geargenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
+#include "sudoku.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	write(1, str, i);
+}
+
+int		ft_strlen(char *str)
 {
 	int i;
 
-	if (nb <= 1)
-		return (2);
-	i = 2;
-	while (i <= (nb / i))
-	{
-		if (nb % i == 0)
-			return (ft_is_prime(nb + 1));
+	i = 0;
+	while (str[i])
 		i++;
-	}
-	return (nb);
-}
-
-int		ft_find_next_prime(int nb)
-{
-	return (ft_is_prime(nb));
+	return (i);
 }

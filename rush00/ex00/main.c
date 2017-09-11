@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_next_prime.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 06:35:16 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 06:29:10 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/02 13:31:35 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/02 21:55:40 by tbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	int i;
+int		rush(int x, int y);
 
-	if (nb <= 1)
-		return (2);
-	i = 2;
-	while (i <= (nb / i))
-	{
-		if (nb % i == 0)
-			return (ft_is_prime(nb + 1));
-		i++;
-	}
-	return (nb);
-}
-
-int		ft_find_next_prime(int nb)
+int		main(void)
 {
-	return (ft_is_prime(nb));
+	rush(5, 5);
+	return (0);
 }

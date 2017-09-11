@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	output(int tab[8])
 {
@@ -73,4 +76,9 @@ void	ft_eight_queens_puzzle2(void)
 		i++;
 	}
 	back_track2(tab, 0);
+}
+int main()
+{
+	ft_eight_queens_puzzle2();
+	return(0);
 }

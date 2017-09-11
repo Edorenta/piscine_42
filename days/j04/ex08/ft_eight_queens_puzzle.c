@@ -10,6 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+int		is_safe(int tab[8], int col, int line)
+{
+	int i;
+
+	i = 0;
+	while (i < col)
+	{
+		if (line == tab[i] || i + tab[i] == col + line
+			|| i - tab[i] == col - line)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 void	back_track(int tab[8], int *res, int pos)
 {
 	int i;
@@ -30,21 +45,6 @@ void	back_track(int tab[8], int *res, int pos)
 	}
 }
 
-int		is_safe(int tab[8], int col, int line)
-{
-	int i;
-
-	i = 0;
-	while (i < col)
-	{
-		if (line == tab[i] || i + tab[i] == col + line
-			|| i - tab[i] == col - line)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int		ft_eight_queens_puzzle(void)
 {
 	int tab[8];
@@ -60,4 +60,10 @@ int		ft_eight_queens_puzzle(void)
 	res = 0;
 	back_track(tab, &res, 0);
 	return (res);
+}
+int main()
+{
+	int test = 0;
+	test = ft_eight_queens_puzzle();
+	return 0;
 }

@@ -14,7 +14,7 @@ int *ft_range(int min, int max)
 	rng++;
 	while (--rng)
 	{
-		tab[i] = max - rng;
+		array[i] = max - rng;
 		i++;
 	}
 	return (array);
