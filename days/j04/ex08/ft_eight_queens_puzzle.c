@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+int		ft_eight_queens_puzzle(void);
+int		is_safe(int tab[8], int col, int line);
+void	back_track(int tab[8], int *res, int pos);
+
 int		is_safe(int tab[8], int col, int line)
 {
 	int i;
@@ -61,6 +65,7 @@ int		ft_eight_queens_puzzle(void)
 	back_track(tab, &res, 0);
 	return (res);
 }
+
 int main()
 {
 	int test = 0;

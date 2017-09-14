@@ -1,32 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_concat_params.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/13 11:06:54 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/14 05:00:09 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-char *ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src, int argc, int argmax)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0')
-	{
+	while (src[++j] != '\0')
 		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = '\n';
-	dest[i + j + 1] = '\0';
+	if (!(argc == argmax))
+		dest[i + j] = '\n';
 	return (dest);
 }
 
-char *ft_concat_params(int argc, char **argv)
+char	*ft_concat_params(int argc, char **argv)
 {
-	char		*str;
+	char	*array;
 	int		i;
 
 	i = -1;
-	str = (char*)malloc(sizeof(*str) * (argc));
-	while (++i < argc)
-		str = ft_strcat(str, argv[i + 1]);
-	return (str);
+	array = (char*)malloc(sizeof(*array) * (argc));
+	while (++i < argc - 1)
+		array = ft_strcat(array, argv[i + 1], i, argc - 2);
+	return (array);
 }

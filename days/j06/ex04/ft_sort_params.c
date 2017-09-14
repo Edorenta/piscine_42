@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/12 17:25:26 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/13 15:57:59 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
@@ -7,6 +19,7 @@ void	ft_putstr(char *str)
 	i = -1;
 	while (str[++i] != '\0')
 		ft_putchar(str[i]);
+	ft_putchar('\n');
 }
 
 int		ft_strcmp(char *s1, char *s2)
@@ -19,28 +32,24 @@ int		ft_strcmp(char *s1, char *s2)
 
 int		main(int argc, char **argv)
 {
-	char	*tmp;
-	int		swap;
 	int		i;
+	int		j;
+	char	*tmp;
 
-	swap = 1;
-	while (swap)
+	i = 0;
+	while (++i < argc - 1)
 	{
-		swap = 0;
-		i = 0;
-		while (++i < argc - 1)
-		{
-			if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+		j = 0;
+		while (++j < argc - 1)
+			if (ft_strcmp(argv[j + 1], argv[j]) < 0)
 			{
-				tmp = argv[i];
-				argv[i] = argv[i + 1];
-				argv[i + 1] = tmp;
-				swap = 1;
+				tmp = argv[j];
+				argv[j] = argv[j + 1];
+				argv[j + 1] = tmp;
 			}
-		}
 	}
 	i = 0;
 	while (++i < argc)
-		ft_putstr(argv[i]), ft_putchar('\n');
+		ft_putstr(argv[i]);
 	return (0);
 }

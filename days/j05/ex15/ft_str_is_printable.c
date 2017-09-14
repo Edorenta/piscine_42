@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_numeric.c                                    :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 20:40:02 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 20:40:16 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 20:41:45 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/12 15:49:33 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_numeric(char *str)
+int		ft_str_is_printable(char *str)
 {
-	int		i;
-	char	cur;
+	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		cur = str[i];
-		if (!(cur >= '0' && cur <= '9'))
+		if (str[i] >= 33 && str[i] <= 126)
+			i++;
+		else
 			return (0);
-		i++;
 	}
 	return (1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/13 11:07:03 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/14 05:00:13 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_putchar(char c);
 
 void	ft_print_words_tables(char **tab)
@@ -10,9 +22,7 @@ void	ft_print_words_tables(char **tab)
 	{
 		j = -1;
 		while (tab[i][++j])
-		{
 			ft_putchar(tab[i][j]);
-		}
 		ft_putchar('\n');
 	}
 }

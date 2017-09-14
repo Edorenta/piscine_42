@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_printable.c                                  :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 20:41:45 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 20:41:58 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 20:37:05 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/12 09:53:42 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_printable(char *str)
+char	*ft_strlowcase(char *str)
 {
-	int		i;
-	char	cur;
+	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		cur = str[i];
-		if ((cur >= 0 && cur <= 31))
-			return (0);
-		i++;
-	}
-	return (1);
+	i = -1;
+	while (str[++i] != '\0')
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+	return (str);
 }

@@ -1,4 +1,18 @@
-static int		nb_words(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/13 11:07:13 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/14 05:00:20 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+
+int		nb_words(char *str)
 {
 	int		i;
 	int		nb;
@@ -19,7 +33,7 @@ static int		nb_words(char *str)
 	return (nb);
 }
 
-char			**ft_dest(char *str)
+char	**ft_dest(char *str)
 {
 	char	**dest;
 	int		i;

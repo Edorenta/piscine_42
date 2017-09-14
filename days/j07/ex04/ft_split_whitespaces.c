@@ -1,31 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_whitespaces.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/13 11:06:57 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/14 05:00:11 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-char **ft_split_whitespaces(char *str)
+int		is_delimiter(char c);
+int		nb_words(char *str);
+
+char	**ft_split_whitespaces(char *str)
 {
 	char	**dest;
-	char	**tmp;
-	int	i;
-	int	i;
-	int	nb_words;
+	int		i;
+	int		j;
+	int		k;
 
-	nb_words = 0;
+	i = -1;
+	dest = (char**)malloc(sizeof(*dest) * (nb_words(str)));
+	j = -1;
+	while (++j <= nb_words(str))
+		dest[j] = malloc(sizeof(*dest[j]) * i);
 	i = -1;
 	j = 0;
-	while (str[i++])
-		if (str[i] != ' ' || str[i] != '\t' || str[i] != '\n')
-			nb_words++;
-	*dest = (char*)malloc(sizeof(char) * (i + 1));
-	i = -1;
-	while (++i < nb_words)
+	k = -1;
+	while (str[++i] != '\0' && j <= nb_words(str))
 	{
-		j = 0;
-		while (str[j] != ' ' || str[j] != '\t' || str[j] != '\n' || str[j] != '\0')
-		{
-			tmp[j] = str[j];
-			i++;
-		}
-		dest[i] = tmp;
-		i++;
+		if (!is_delimiter(str[i]))
+			if (i == 0 || is_delimiter(str[i - 1]))
+			{
+				k = -1;
+				j++;
+			}
+		dest[j][++k] = str[i];
 	}
+	dest[j][++k] = '\0';
 	return (dest);
+}
+
+int		is_delimiter(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\r')
+		return (1);
+	return (0);
+}
+
+int		nb_words(char *str)
+{
+	int		i;
+	int		nb_words;
+
+	i = 0;
+	nb_words = 0;
+	while (str[++i] != '\0')
+	{
+		if (!is_delimiter(str[i]))
+			if (i == 0 || is_delimiter(str[i - 1]))
+				nb_words++;
+	}
+	return (nb_words);
 }

@@ -6,24 +6,30 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 04:50:12 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 17:02:14 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/12 09:53:31 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int i;
+	int j;
 
-	i = 0;
-	while (src[i] != '\0' && i < (int)n)
+	i = -1;
+	j = 0;
+	while (to_find[j] != '\0')
+		j++;
+	if (j == 0)
+		return (str);
+	while (str[++i] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		j = 0;
+		while (to_find[j] == str[i + j])
+		{
+			if (to_find[j + 1] == '\0')
+				return (str + i);
+			j++;
+		}
 	}
-	while (i < (int)n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (0);
 }

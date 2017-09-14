@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_capitalize.c                                    :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 20:38:29 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 20:38:44 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 20:40:44 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/12 09:53:49 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+int		ft_str_is_lowercase(char *str)
 {
-	char *s;
+	int i;
 
-	s = str;
-	while (*s != '\0')
-	{
-		if (ft_is_alphanum(*(s - 1)) && *s >= 'A' && *s <= 'Z')
-			*s += 32;
-		if (!ft_is_alphanum(*(s - 1)) && *s >= 'a' && *s <= 'z')
-			*s -= 32;
-		s++;
-	}
-	return (str);
+	i = -1;
+	while (str[++i] != '\0')
+		if (!((str[i] >= 'a' && str[i] <= 'z')))
+			return (0);
+	return (1);
 }

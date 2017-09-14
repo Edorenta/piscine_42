@@ -1,20 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/12 17:25:14 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/13 10:04:57 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_putchar(char c);
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int		i;
 	int		j;
-	char	*arg;
 
-	i = 1;
-	j = -1;
-	whilei (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
-		arg = argv[i];
-		while (arg[++j] != '\0')
-			ft_putchar(arg[j]);
+		j = -1;
+		while (argv[i][++j] != '\0')
+			ft_putchar(argv[i][j]);
 		ft_putchar('\n');
-		i++;
 	}
 	return (0);
 }

@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
+void	output(int tab[8]);
+void	back_track2(int tab[8], int pos);
+int		is_safe(int tab[8], int tab, int line);
+void	ft_eight_queens_puzzle2(void);
 
 void	output(int tab[8])
 {

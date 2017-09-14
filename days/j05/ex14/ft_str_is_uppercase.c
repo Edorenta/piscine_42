@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lowcase.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 20:37:05 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/07 20:37:14 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/07 20:41:06 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/12 09:53:51 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ar	*ft_strlowcase(char *str)
+int		ft_str_is_uppercase(char *str)
 {
-	int	i;
+	int i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
+	i = -1;
+	while (str[++i] != '\0')
+		if (!((str[i] >= 'A' && str[i] <= 'Z')))
+			return (0);
+	return (1);
 }
