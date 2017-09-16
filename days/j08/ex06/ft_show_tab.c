@@ -1,4 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/14 16:38:49 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/16 16:05:12 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_stock_par.h"
+#define ABS(x)  (x<0) ? - x : x
+
+void	ft_putnbr(int nb)
+{
+	unsigned int res;
+
+	res = ABS(nb);
+	if (nb < 0)
+		ft_putchar('-');
+	if (ABS(res) >= 10)
+		ft_putnbr(ABS(res) / 10);
+	ft_putchar((ABS(res) % 10) + '0');
+}
+
+void	ft_putstr(char *str)
+{
+	int i;
+
+	i = -1;
+	while (str[++i] != '\0')
+		ft_putchar(str[i]);
+}
 
 void	ft_show_tab(struct s_stock_par *par)
 {

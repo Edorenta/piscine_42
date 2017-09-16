@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/14 16:38:14 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 16:05:03 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/04 15:13:12 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/06 06:13:05 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+int		ft_pow(int nb, int power)
+{
+	long res;
 
-# include <unistd.h>
-# define TRUE 1
-# define FALSE 0
-# define EVEN(x) (((x % 2) != 0) ? FALSE : TRUE)
-# define SUCCESS 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-
-typedef	int	t_bool;
-
-#endif
+	res = nb;
+	if (power < 0)
+		return (0);
+	else if (power == 0)
+		return (1);
+	else if (power == 1)
+		return (nb);
+	nb = ft_pow(nb, power - 1);
+	if ((res * nb) > 2147483647)
+		return (0);
+	return (nb * res);
+}

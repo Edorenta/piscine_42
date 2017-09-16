@@ -6,11 +6,49 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/03 23:11:25 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 16:38:54 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/16 17:25:26 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
+}
+
+int		ft_atoi(char *str)
+{
+	int	i;
+	int	res;
+	int sign;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n') ||
+			(str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if ((str[i] == '-') || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}
+	return (sign * res);
+}
+
+void	ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		ft_putchar(str[i]);
+}
 
 int		calc_base(int max_lvl)
 {
@@ -101,3 +139,15 @@ void	sastantua(int max_lvl)
 		tower_width += 4 + 2 * ((lvl - 2) / 2);
 	}
 }
+
+int		main(int ac, char **av)
+{
+	if (ac != 2)
+	{
+		ft_putstr("Please enter a valid number");
+		ft_putchar('\n');
+		return (0);
+	}
+	sastantua(ft_atoi(av[1]));
+	return (0);
+}	

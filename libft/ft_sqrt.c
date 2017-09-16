@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/13 11:06:41 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/14 05:00:04 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/04 15:18:13 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/06 06:25:32 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strdup(char *src)
+int		ft_sqrt(int nb)
 {
-	int		i;
-	int		src_len;
-	char	*str;
+	int	i;
 
-	i = -1;
-	src_len = 0;
-	while (src[src_len])
-		src_len++;
-	str = (char*)malloc(sizeof(*str) * (src_len + 1));
-	while (++i < src_len)
-		str[i] = src[i];
-	str[i] = 0;
-	return (str);
+	i = 0;
+	if (nb < 0)
+		return (0);
+	while (i * i < nb)
+		i++;
+	if (i * i == nb)
+		return (i);
+	return (0);
 }

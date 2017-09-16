@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/14 16:38:14 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 16:05:03 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/05 01:47:15 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/12 09:53:26 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#define ABS(x)	(x < 0) ? - x : x
 
-# include <unistd.h>
-# define TRUE 1
-# define FALSE 0
-# define EVEN(x) (((x % 2) != 0) ? FALSE : TRUE)
-# define SUCCESS 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
+void	ft_putchar(char c);
 
-typedef	int	t_bool;
+void	ft_putnbr(int nb)
+{
+	unsigned int res;
 
-#endif
+	res = ABS(nb);
+	if (nb < 0)
+		ft_putchar('-');
+	if (ABS(res) >= 10)
+		ft_putnbr(ABS(res) / 10);
+	ft_putchar((ABS(res) % 10) + '0');
+}

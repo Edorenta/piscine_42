@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/13 09:06:52 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/14 04:03:11 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/02 23:21:04 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/06 03:28:29 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+char	*ft_strrev(char *str)
 {
-	write(1, &c, 1);
+	char	tmp;
+	int		i;
+	int		str_len;
+
+	str_len = 0;
+	i = 0;
+	while (str[str_len] != '\0')
+	{
+		str_len++;
+	}
+	while (i < (str_len / 2))
+	{
+		tmp = str[i];
+		str[i] = str[str_len - i - 1];
+		str[str_len - i - 1] = tmp;
+		i++;
+	}
+	return (str);
 }

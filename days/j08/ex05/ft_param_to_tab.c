@@ -1,12 +1,41 @@
-#include "ft_stock_tab.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_param_to_tab.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/14 16:38:38 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/16 16:05:09 by pde-rent         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-struct s_item_par *ft_param_to_tab(int ac, char **av)
+#include "ft_stock_par.h"
+
+char				*strdup(char *src)
 {
-	ft_stock_tab	*item;
-	int		i;
-	int		j;
+	int				i;
+	int				src_len;
+	char			*str;
 
-	if ((item = (ft_stock_tab*)malloc(sizeof(ft_stock_tab) * (ac + 1))) == NULL)
+	i = -1;
+	src_len = 0;
+	while (src[src_len])
+		src_len++;
+	str = (char*)malloc(sizeof(*str) * (src_len + 1));
+	while (++i < src_len)
+		str[i] = src[i];
+	str[i] = 0;
+	return (str);
+}
+
+struct s_stock_par	*ft_param_to_tab(int ac, char **av)
+{
+	t_stock_par		*item;
+	int				i;
+	int				j;
+
+	if ((item = (t_stock_par*)malloc(sizeof(t_stock_par) * (ac + 1))) == NULL)
 		return (NULL);
 	i = 0;
 	while (i < ac)
@@ -16,7 +45,7 @@ struct s_item_par *ft_param_to_tab(int ac, char **av)
 			j++;
 		item[i].size_param = j;
 		item[i].str = av[i];
-		item[i].copy = ft_strdup(av[i]);
+		item[i].copy = strdup(av[i]);
 		item[i].tab = ft_split_whitespaces(av[i]);
 		i++;
 	}

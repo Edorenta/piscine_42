@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/13 09:06:52 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/14 04:03:11 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/04 15:07:58 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/11 18:28:17 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ABS(x)  (x<0) ? - x : x
-
-void	ft_putchar(char c);
-
-void	ft_putnbr(int nb)
+int		ft_fact(int nb)
 {
-	unsigned int res;
-
-	res = ABS(nb);
-	if (nb < 0)
-		ft_putchar('-');
-	if (ABS(res) >= 10)
-		ft_putnbr(ABS(res) / 10);
-	ft_putchar((ABS(res) % 10) + '0');
+	if (nb >= 0 && nb < 13)
+	{
+		if (nb == 1 || nb == 0)
+			return (1);
+		else
+			return (nb * ft_fact(nb - 1));
+	}
+	else
+		return (0);
 }

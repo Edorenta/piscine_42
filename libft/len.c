@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/13 09:06:52 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/14 04:03:11 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/10 02:47:01 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/13 15:55:08 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ABS(x)  (x<0) ? - x : x
-
-void	ft_putchar(char c);
-
-void	ft_putnbr(int nb)
+int		len(char *str)
 {
-	unsigned int res;
+	int	i;
 
-	res = ABS(nb);
-	if (nb < 0)
-		ft_putchar('-');
-	if (ABS(res) >= 10)
-		ft_putnbr(ABS(res) / 10);
-	ft_putchar((ABS(res) % 10) + '0');
+	i = -1;
+	while (str[++i] != '\0')
+		i++;
+	return (i);
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/14 16:38:14 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 16:05:03 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/04 15:16:11 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/12 08:38:18 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
-
-# include <unistd.h>
-# define TRUE 1
-# define FALSE 0
-# define EVEN(x) (((x % 2) != 0) ? FALSE : TRUE)
-# define SUCCESS 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-
-typedef	int	t_bool;
-
-#endif
+int		ft_fibo(int index)
+{
+	if (index > 47)
+		return (0);
+	if (index < 0)
+		return (-1);
+	else if (index <= 1)
+		return (index);
+	else
+		return (ft_fibo(index - 1) + ft_fibo(index - 2));
+}

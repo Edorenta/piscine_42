@@ -6,63 +6,55 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/13 11:06:54 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 15:52:46 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/14 05:00:09 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-void	concat(int argc, char **argv, char *str)
+char	*ft_strcat(char *dest, char *src, int argc, int argmax)
 {
-	int i;
-	int count;
-	int nb;
+	int		i;
+	int		j;
 
 	i = 0;
-	count = 0;
-	nb = 1;
-	while (nb < argc)
-	{
-		count = 0;
-		while (argv[nb][count] != '\0')
-		{
-			str[i] = argv[nb][count];
-			count++;
-			i++;
-		}
-		if (nb != argc - 1)
-			str[i] = '\n';
+	j = -1;
+	while (dest[i] != '\0')
 		i++;
-		nb++;
-	}
-	str[i - 1] = '\0';
+	while (src[++j] != '\0')
+		dest[i + j] = src[j];
+	if (!(argc == argmax))
+		dest[i + j] = '\n';
+	return (dest);
 }
 
 char	*ft_concat_params(int argc, char **argv)
 {
+	char	*array;
 	int		i;
-	int		nb;
-	int		count;
-	char	*str;
 
-	nb = 1;
-	count = 0;
-	if (argc == 1)
-	{
-		return ("");
-	}
-	while (nb < argc)
-	{
-		i = 0;
-		while (argv[nb][i] != '\0')
-		{
-			count++;
-			i++;
-		}
-		count++;
-		nb += 1;
-	}
-	str = (char *)malloc(sizeof(*str) * (count + 1));
-	concat(argc, argv, str);
-	return (str);
+	i = -1;
+	array = (char*)malloc(sizeof(*array) * (argc));
+	while (++i < argc - 1)
+		array = ft_strcat(array, argv[i + 1], i, argc - 2);
+	printf("%s", array);
+	return (array);
 }
+
+int		main(int argc, char *argv[])
+{
+	ft_concat_params(argc, argv);
+	return 0;
+}
+//"o0PpDa6RLl" "1nM2Ivq" "aX9c" "JDgmxY" "DMeB" "TzK91qd7S" "WYNHS3"
+/*
+ 1nM2Ivq$
+ aX9c$
+ JDgmxY$
+-^P^ODMeB$
++DMeB$
+ TzK91qd7S$
+ WYNHS3$
+ avlYVXfLsFH$
+ */

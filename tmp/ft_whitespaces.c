@@ -6,16 +6,37 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/13 11:06:57 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 16:03:35 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/14 05:00:11 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
+#define ABS(x)	(x < 0) ? - x : x
 
-char	**ft_split_whitespaces(char *str);
 int		is_delimiter(char c);
 int		nb_words(char *str);
+void	ft_print_words_tables(char **tab);
+char	**ft_split_whitespaces(char *str);
+void	ft_putchar(char c);
 void	init(int *i, int *j, int *k);
+
+void	ft_putnbr(int nb)
+{
+	unsigned int res;
+
+	res = ABS(nb);
+	if (nb < 0)
+		ft_putchar('-');
+	if (ABS(res) >= 10)
+		ft_putnbr(ABS(res) / 10);
+	ft_putchar((ABS(res) % 10) + '0');
+}
+
+void	ft_putchar(char c)
+{
+	write(1,&c,1);
+}
 
 char	**ft_split_whitespaces(char *str)
 {
@@ -24,10 +45,10 @@ char	**ft_split_whitespaces(char *str)
 	int		j;
 	int		k;
 
+	dest = (char**)malloc(sizeof(*dest) * (nb_words(str) + 1));
 	init(&i, &j, &k);
 	while (str[i] != '\0')
 		i++;
-	dest = (char**)malloc(sizeof(*dest) * (nb_words(str) + 1));
 	while (++j < nb_words(str))
 		dest[j] = malloc(sizeof(*dest[j]) * (i + 1));
 	init(&i, &j, &k);
@@ -74,4 +95,26 @@ int		nb_words(char *str)
 				nb_words++;
 	}
 	return (nb_words);
+}
+
+void	ft_print_words_tables(char **tab)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	while (tab[++i] != NULL)
+	{
+		j = -1;
+		while (tab[i][++j])
+			ft_putchar(tab[i][j]);
+		ft_putchar('\n');
+	}
+}
+
+int main(int argc, char **argv)
+{
+	if (argc > 1)
+		ft_print_words_tables(ft_split_whitespaces(argv[1]));
+	return 0;
 }
