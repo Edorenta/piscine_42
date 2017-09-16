@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 int     main(int ac, char **av)
@@ -26,12 +27,10 @@ int     eval_xpr(char *str)
     int     xpr_ln;
     int     nb_par;
     int     nb_op;
-    
     char    **xpr;
 
     var_init(&i, &j, &xpr_ln, &nb_par, &nb_op);
-    while (str[xpr_ln] != 0)
-        xpr_ln++;
+    xpr_ln = ft_strlen(str);
     while (str[++i] != 0)
     {
         if (str[i] == '(' || str[i] == ')')
@@ -40,11 +39,13 @@ int     eval_xpr(char *str)
             nb_op++;
     }
     if (nb_par % 2 != 0)
-        return (0);                             //Error: odd parenthesis number
+        return (0);                                     //Error: odd parenthesis number
     nb_par /= 2;
-    if (malloc(xpr_ln * sizeof(*xpr)) == NULL)   //Error: malloc did not alloc
+    if (malloc(xpr_ln * sizeof(*xpr)) == NULL)          //Error: malloc did not alloc D1 correctly
         return (0);
-    
+    while (++j < nb_op)
+        if (malloc(xpr_ln * sizeof(*xpr[j])) == NULL)   //Error: malloc did not alloc D2 correclty
+            return (0);
 
 }
 
