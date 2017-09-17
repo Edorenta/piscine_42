@@ -12,7 +12,7 @@
 
 #include "ft_stock_par.h"
 
-char				*strdup(char *src)
+char				*ft_strdup(char *src)
 {
 	int				i;
 	int				src_len;
