@@ -12,7 +12,7 @@
 
 #define ABS(x)  (x<0) ? - x : x
 
-int		ft_putchar(char c);
+void	ft_putchar(char c);
 
 void	ft_putnbr(int nb)
 {

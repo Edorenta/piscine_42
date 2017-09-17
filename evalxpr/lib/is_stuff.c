@@ -30,3 +30,10 @@ int		is_space(char c)
 			return (0);
 	return (1);
 }
+
+int		is_par(char c)
+{
+		if (!(c == ' ' || (c > 8 && c < 14 )))
+			return (0);
+	return (1);
+}
