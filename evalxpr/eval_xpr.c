@@ -24,6 +24,20 @@ void    var_init(int *i, int *j, int *k, int *l, int *m)
     *m = 0;
 }
 
+char    *open_par(char *str, char *tmp, int *k)
+{
+    int j;
+    int i;
+
+    j = -1;
+    while (str[++*k] != ')')
+    {
+        if (!is_space(str[*k]))
+            tmp[++j] = str[*k];
+    }
+    *k--;
+    return (tmp);
+}
 int     eval_xpr(char *str)
 {
     int     i;
@@ -32,6 +46,7 @@ int     eval_xpr(char *str)
     int     nb_par;
     int     nb_op;
     char    **xpr;
+    char    *tmp;
 
     var_init(&i, &j, &xpr_ln, &nb_par, &nb_op);
     xpr_ln = ft_strlen(str);
@@ -50,20 +65,24 @@ int     eval_xpr(char *str)
         if (is_space(str[i]))
             j++;
     i = -1;
-    if ((xpr = malloc((nb_op) * sizeof(*xpr))) == NULL)     //Error: malloc did not alloc D2 correclty
+    if ((xpr = malloc((nb_op + nb_par) * sizeof(*xpr))) == NULL)     //Error: malloc did not alloc D2 correclty
         return (0);
     while (++i < nb_op)
         if ((xpr[i] = malloc((xpr_ln - j + 1) * sizeof(*xpr[i]))) == NULL)     //Error: malloc did not alloc D1 correctly
             return (0);
+    if ((tmp = malloc((xpr_ln - j + 1) * sizeof(*tmp))) == NULL)     //Error: malloc did not alloc D2 correclty
+        return (0);
     var_init(&i, &j, &xpr_ln, &nb_par, &nb_op);
     while (str[++i])        //Space remover
         if (!is_space(str[i]))
         {
+            if (is_num(str[i]) || is_op(str[i]))
+                xpr[xpr_ln][++j] = str[i];
             if (str[i] == '(')
             {
-                while (str[i] != ')')
-                    //////////////////////////////!!!!!!!! TO DO : INSIDE PAR PRIOR CALCULATION
-                    i++;
+                xpr[++xpr_ln] = open_par(str, tmp, &i);
+            //  i += ft_strlen(tmp);
+                xpr_ln++;
             }
             if (is_op(str[i]))
             {
@@ -74,15 +93,13 @@ int     eval_xpr(char *str)
                     j = -1;
                 }
             }
-            if (is_num(str[i]) || is_op(str[i]))
-                xpr[xpr_ln][++j] = str[i];
         }
     i = -1;
     ////////////////////////////////////// COMMENT
-    while (++i <= xpr_ln)
+    while (++i < xpr_ln)
     {
-        ft_putstr(xpr[i]);
-        ft_putchar('\n');
+    //    ft_putstr(xpr[i]);
+    //    ft_putchar('\n');
     }
     ///////////////////////////////////// END OF COMMENT
     ///////////////////////////////////// CALCULATE THE PARSED XPR[i] THEN RETURN THE RESULT
