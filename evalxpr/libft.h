@@ -21,5 +21,8 @@ void	ft_putstr(char *str);
 int		ft_strlen(char *str);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_swap(int *a, int *b);
+int		is_op(char c);
+int		is_num(char c);
+int		is_space(char c);
 
 #endif
