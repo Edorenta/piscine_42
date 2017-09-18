@@ -33,7 +33,7 @@ int		is_space(char c)
 
 int		is_par(char c)
 {
-		if (!(c == ' ' || (c > 8 && c < 14 )))
+		if (!(c == '(' || c == ')' ))
 			return (0);
 	return (1);
 }

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   test_rush.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahoarau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/10 02:47:01 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/13 15:55:08 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/17 13:01:02 by ahoarau           #+#    #+#             */
+/*   Updated: 2017/09/17 23:03:35 by ahoarau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int	i;
+#ifndef TEST_RUSH_H
+# define TEST_RUSH_H
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+char	*test_which_colle(int x, int y, char **tab);
+
+#endif

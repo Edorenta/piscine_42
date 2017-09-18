@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   fct.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ahoarau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/10 02:47:01 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/13 15:55:08 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/16 17:15:11 by ahoarau           #+#    #+#             */
+/*   Updated: 2017/09/17 22:59:28 by ahoarau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int	i;
+#ifndef FCT_H
+# define FCT_H
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+
+int		ft_strlen(char *s);
+char	*ft_realloc_strcat(char *s1, char *s2);
+char	*ft_positive_itoa(int nb);
+char	*ft_strcpy(char *dest, char *src);
+#endif

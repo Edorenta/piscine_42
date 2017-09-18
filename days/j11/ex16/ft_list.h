@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/10 02:47:01 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/13 15:55:08 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/18 15:53:58 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/18 15:54:06 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
-{
-	int	i;
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+typedef struct      s_list
+{
+	struct s_list	*next;
+	void			*data;
+}			    	t_list;
+
+#endif

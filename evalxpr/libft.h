@@ -26,5 +26,7 @@ int		is_op(char c);
 int		is_num(char c);
 int		is_space(char c);
 int		is_par(char c);
+char    *infix_to_postfix(char *av);
+int     postfix_to_int(char *str);
 
 #endif

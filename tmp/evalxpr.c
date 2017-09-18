@@ -23,21 +23,56 @@ void    var_init(int *i, int *j, int *k, int *l, int *m)
     *l = 0;
     *m = 0;
 }
-
+/*
 char    *open_par(char *str, char *tmp, int *k)
 {
     int j;
     int i;
+    int nb_par_o;
+    int nb_par_c;
 
+    nb_par_c = 0;
+    nb_par_o = 1;
     j = -1;
-    while (str[++*k] != ')')
+    *k++;
+    while (nb_par_c != nb_par_o)
+    {   
+        ft_putnbr(++flag);
+        if (str[*k] == '(')
+            nb_par_o++;
+        if (str[*k] == ')')
+            nb_par_c++;
+        if (!is_space(str[*k]))
+            tmp[++j] = str[*k];
+        *k++;
+    }
+//  *k--;
+    return (tmp);
+}
+*/
+char    *open_par(char *str, char *tmp, int *k)
+{
+    int j;
+    int i;
+    int nb_par_o;
+    int nb_par_c;
+
+    nb_par_c = 0;
+    nb_par_o = 1;
+    j = -1;
+    while (str[++*k -1] != ')' && nb_par_o > nb_par_c)
     {
         if (!is_space(str[*k]))
             tmp[++j] = str[*k];
+        if (str[*k] == '(')
+            nb_par_o++;
+        if (str[*k] == ')')
+            nb_par_c++;
     }
-    *k--;
+//  *k--;
     return (tmp);
 }
+
 int     eval_xpr(char *str)
 {
     int     i;
@@ -80,7 +115,9 @@ int     eval_xpr(char *str)
                 xpr[xpr_ln][++j] = str[i];
             if (str[i] == '(')
             {
-                xpr[++xpr_ln] = open_par(str, tmp, &i);
+                if (j != -1)
+                    xpr_ln++;
+                xpr[xpr_ln] = open_par(str, tmp, &i);
             //  i += ft_strlen(tmp);
                 xpr_ln++;
             }
@@ -98,8 +135,8 @@ int     eval_xpr(char *str)
     ////////////////////////////////////// COMMENT
     while (++i < xpr_ln)
     {
-    //    ft_putstr(xpr[i]);
-    //    ft_putchar('\n');
+        ft_putstr(xpr[i]);
+        ft_putchar('\n');
     }
     ///////////////////////////////////// END OF COMMENT
     ///////////////////////////////////// CALCULATE THE PARSED XPR[i] THEN RETURN THE RESULT

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colle-2.c                                          :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/16 16:44:29 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 21:23:28 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/18 15:53:58 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/18 15:54:06 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "libft_light.h"
+#include "ft_list.h"
+#include <stdlib.h>
 
-int		main(void)
+t_list	*ft_create_elem(void *data)
 {
-	int handle;
-	int shift;
-	char *buffer;
+	t_list	*new_elem;
 
-	shift = 1;	
-	handle = read(0, buffer, shift);
-	return 0;
+	new_elem = malloc(sizeof(*new_elem));
+	if (new_elem)
+	{
+		new_elem->data = data;
+		new_elem->next = NULL;
+	}
+	return (new_elem);
 }
-

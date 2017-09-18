@@ -6,11 +6,8 @@
 #    By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/13 15:55:11 by pde-rent          #+#    #+#              #
-#    Updated: 2017/09/13 15:55:16 by pde-rent         ###   ########.fr        #
+#    Updated: 2017/09/17 13:33:57 by pde-rent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-gcc -c ft_*.c
-ar rc libft.a *.o
-ranlib libft.a
-rm *.o
+gcc -c *.c && ar rc libft.a *.o && ranlib libft.a && rm *.o
