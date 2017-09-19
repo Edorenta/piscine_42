@@ -28,5 +28,5 @@ t_list	*ft_list_push_params(int ac, char **av)
 		tmp = item;
 		i++;
 	}
-	return (list);
+	return (item);
 }

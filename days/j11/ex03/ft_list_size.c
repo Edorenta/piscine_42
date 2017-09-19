@@ -14,7 +14,7 @@
 
 int ft_list_size(t_list *item)
 {
-    if(item != NULL)
-        return(1 + list_size(item->next));
+    if(item)
+        return(1 + ft_list_size(item->next));
     return(0);
 }

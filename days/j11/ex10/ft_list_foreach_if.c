@@ -19,7 +19,7 @@ void	ft_list_foreach_if(
 {
 	t_list	*item;
 	item = begin_list;
-	while (item)
+	while (item != NULL)
 	{
 		if ((*cmp)(item->data, data_ref) == 0)
 			(*f)(item->data);

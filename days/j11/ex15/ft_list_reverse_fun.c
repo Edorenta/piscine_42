@@ -15,48 +15,19 @@
 
 void	ft_list_reverse_fun(t_list *begin_list)
 {
+	t_list	*prev_item;
 	t_list	*item;
 	t_list	*next_item;
-	int		size;
-	int		i;
-	void	*tmp;
 
+	prev_item = NULL;
 	item = begin_list;
-	next_item = item->next;
-	while (next_item != NULL)
+
+	while (item != NULL)
 	{
 		next_item = item->next;
-		if (item == b)
-			break ;
-		tmp = item->data;
-		item->data = b->data;
-		b->data = tmp;
-		item = item->next ? item->next : item;
-		size--;
+		item->next = prev_item;
+		prev_item = item;
+		item = next_item;
 	}
-	item = begin_list;
-}
-
-void	ft_list_reverse_fun(t_list *begin_list)
-{
-	t_list	*item;
-	t_list	*next_item;
-	t_list	*tmp2;
-
-	item = begin_list;
-	if (item && (item->next))
-    {
-        next_item = list->next;
-        tmp2 = next_item->next;
-        list->next = 0;
-        next_item->next = list;
-        while (tmp2)
-        {
-            list = next_item;
-            next_item = tmp2;
-            tmp2 = tmp2->next;
-            next_item->next = list;
-        }
-        begin_list = next_item;
-    }
+	begin_list = prev_item;
 }
