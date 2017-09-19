@@ -4,7 +4,9 @@
     "editor.cursorStyle": "block",
     "editor.minimap.enabled": true,
     "files.associations": {
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c"
     },
 
 }
