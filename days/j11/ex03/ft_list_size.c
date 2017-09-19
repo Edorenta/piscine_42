@@ -6,8 +6,15 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 15:54:22 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/18 15:54:24 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/18 19:37:15 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 
+int ft_list_size(t_list *item)
+{
+    if(item != NULL)
+        return(1 + list_size(item->next));
+    return(0);
+}

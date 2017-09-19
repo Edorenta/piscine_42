@@ -6,7 +6,7 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 15:53:58 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/18 15:54:06 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/18 18:01:49 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 t_list	*ft_create_elem(void *data)
 {
-	t_list	*new_elem;
+	t_list	*item;
 
-	new_elem = malloc(sizeof(*new_elem));
-	if (new_elem)
+	item = malloc(sizeof(*item));
+	if (item)
 	{
-		new_elem->data = data;
-		new_elem->next = NULL;
+		item->data = data;
+		item->next = NULL;
 	}
-	return (new_elem);
+	return (item);
 }

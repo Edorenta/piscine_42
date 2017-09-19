@@ -10,4 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include "ft_list.h"
 
+void	ft_list_clear(t_list **begin_list)
+{
+	t_list	*item;
+	t_list	*tmp;
+	tmp = *begin_list;
+	while (item != NULL)
+	{
+		item = tmp->next;
+		free(tmp);
+		tmp = item;
+	}
+	*begin_list = NULL;
+}

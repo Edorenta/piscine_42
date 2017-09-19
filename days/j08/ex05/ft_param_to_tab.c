@@ -6,7 +6,7 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 16:38:38 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 16:05:09 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/18 20:05:23 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char				*ft_strdup(char *src)
 	return (str);
 }
 
-struct s_stock_par	*ft_param_to_tab(int ac, char **av)
+t_stock_par			*ft_param_to_tab(int ac, char **av)
 {
 	t_stock_par		*item;
 	int				i;
@@ -45,7 +45,7 @@ struct s_stock_par	*ft_param_to_tab(int ac, char **av)
 			j++;
 		item[i].size_param = j;
 		item[i].str = av[i];
-		item[i].copy = strdup(av[i]);
+		item[i].copy = ft_strdup(av[i]);
 		item[i].tab = ft_split_whitespaces(av[i]);
 		i++;
 	}

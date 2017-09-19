@@ -10,4 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include "ft_list.h"
 
+void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+	t_list	*item;
+	item = begin_list;
+	while (item != NULL)
+	{
+		(*f)(item->data);
+		item = item->next;
+	}
+}
