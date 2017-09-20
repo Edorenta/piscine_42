@@ -6,11 +6,11 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 16:49:06 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/19 16:49:08 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/20 02:49:01 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_count_if(char **tab, int(*f)(char*))
+int		ft_count_if(char **tab, int (*f)(char*))
 {
 	int i;
 

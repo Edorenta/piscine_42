@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_any.c                                           :+:      :+:    :+:   */
+/*   operands2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 16:49:02 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/20 02:46:07 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/10 02:10:47 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/20 03:09:10 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_any(char **tab, int (*f)(char*))
+int		mult(int x, int y)
 {
-	int		i;
+	return (x * y);
+}
 
-	i = -1;
-	while (tab[++i] != '\0')
-		if (f(tab[i]) == 1)
-			return (1);
-	return (0);
+int		div(int x, int y)
+{
+	return (x / y);
+}
+
+int		mod(int x, int y)
+{
+	return (x % y);
+}
+
+int		power(int x, int y)
+{
+	return (ft_pow(x, y));
 }

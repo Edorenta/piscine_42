@@ -6,11 +6,11 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 16:48:55 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/19 16:48:57 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/20 02:45:59 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ch(int *tab, int length, void (*f)(int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int		i;
 

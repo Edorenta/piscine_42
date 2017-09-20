@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_any.c                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 16:49:02 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/20 02:46:07 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/05 01:34:36 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/20 03:08:56 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_any(char **tab, int (*f)(char*))
+void	ft_putchar(char c);
+
+void	ft_putstr(char *str)
 {
-	int		i;
+	int i;
 
 	i = -1;
-	while (tab[++i] != '\0')
-		if (f(tab[i]) == 1)
-			return (1);
-	return (0);
+	while (str[++i] != '\0')
+		ft_putchar(str[i]);
 }

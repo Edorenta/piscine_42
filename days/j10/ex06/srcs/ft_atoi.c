@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 20:39:24 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/12 09:53:46 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/05 03:18:03 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/20 03:08:49 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+int		ft_atoi(char *str)
 {
-	int i;
+	int	i;
+	int	res;
+	int	sign;
 
-	i = -1;
-	while (str[++i] != '\0')
-		if (!((str[i] >= 'a' && str[i] <= 'z')
-			|| (str[i] >= 'A' && str[i] <= 'Z')))
-			return (0);
-	return (1);
+	i = 0;
+	res = 0;
+	while ((str[i] == 32) || (str[i] > 8 && str[i] < 14))
+		i++;
+	sign = ((str[i] == '-') ? -1 : 1);
+	if ((str[i] == '-') || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		res = res * 10 + str[i++] - '0';
+	return (sign * res);
 }

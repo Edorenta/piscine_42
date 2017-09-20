@@ -1,29 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   is_smth.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 03:18:03 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/12 09:53:28 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/20 03:18:25 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+int		is_num(char c)
 {
-	int	i;
-	int	res;
-	int	sign;
+	if (!((c >= '0' && c <= '9')))
+		return (0);
+	return (1);
+}
 
-	i = 0;
-	res = 0;
-	while ((str[i] == 32) || (str[i] > 8 && str[i] < 14))
-		i++;
-	sign = ((str[i] == '-') ? -1 : 1);
-	if ((str[i] == '-') || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-		res = res * 10 + str[i++] - '0';
-	return (sign * res);
+int		is_alpha(char c)
+{
+	if (!((c >= 'a' && c <= 'z')
+				|| (c >= 'A' && c <= 'Z')))
+		return (0);
+	return (1);
+}
+
+int		is_op(char c)
+{
+	if (!(c == '+' || c == '-' || c == '/' || c == '*' || c == '%'))
+		return (0);
+	return (1);
+}
+
+int		is_space(char c)
+{
+	if (!(c == ' ' || (c > 8 && c < 14)))
+		return (0);
+	return (1);
+}
+
+int		is_par(char c)
+{
+	if (!(c == '(' || c == ')'))
+		return (0);
+	return (1);
 }

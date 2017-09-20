@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_light.h                                      :+:      :+:    :+:   */
+/*   libop.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 17:31:48 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/16 18:47:20 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/20 03:17:55 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIBOP_H
+# define LIBOP_H
 
 # define SUM(x, y) ((x) + (y))
 # define SUB(x, y) ((x) - (y))
@@ -30,25 +30,10 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
-void	ft_swap(int *a, int *b);
-void	ft_print_words_tables(char **tab);
-void	ft_sort_integer_table(int *tab, int size);
-char	**ft_split_whitespaces(char *str);
-char	*ft_strdup(char *src);
-char	*ft_strrev(char *str);
-char    *ft_itoa(int nb);
+char	*ft_itoa(int nb);
 int		ft_atoi(char *str);
-int		ft_strstr(char *str, char *to_find);
-int		ft_strcat(char *dest, char *src);
-int		ft_strcmp(char *s1, char *s2);
 int		ft_strlen(char *str);
-int		ft_str_is_alpha(char *str);
-int		ft_str_is_numeric(char *str);
-int		ft_str_is_alphanum(char *str);
-int		ft_fact(int nb);
 int		ft_pow(int nb, int power);
-int		ft_sqrt(int nb);
-int		ft_fibo(int index);
 int		is_op(char c);
 int		is_num(char c);
 int		is_space(char c);

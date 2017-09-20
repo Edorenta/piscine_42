@@ -6,40 +6,48 @@
 #    By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/19 16:48:47 by pde-rent          #+#    #+#              #
-#    Updated: 2017/09/20 02:45:18 by pde-rent         ###   ########.fr        #
+#    Updated: 2017/09/20 03:08:48 by pde-rent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+PATH = /bin/
+NAME = libop.a
 
-SRC =	srcs/ft_putchar.c	\
-		srcs/ft_putnbr.c	\
-		srcs/ft_putstr.c	\
-		srcs/ft_strcmp.c	\
-		srcs/ft_strlen.c	\
-		srcs/ft_swap.c
+SRC = 	ft_atoi.c		\
+		ft_itoa.c		\
+		ft_pow.c		\
+		ft_putchar.c	\
+		ft_putnbr.c		\
+		ft_putstr.c		\
+		is_smth.c		\
+		operands.c		\
+		is_smth2.c		\
+		operands2.c
 
-CMP =	srcs/ft_putchar.o	\
-		srcs/ft_putnbr.o	\
-		srcs/ft_putstr.o	\
-		srcs/ft_strcmp.o	\
-		srcs/ft_strlen.o	\
-		srcs/ft_swap.o
+CMP = 	ft_atoi.o		\
+		ft_itoa.o		\
+		ft_pow.o		\
+		ft_putchar.o	\
+		ft_putnbr.o		\
+		ft_putstr.o		\
+		is_smth.o		\
+		operands.o		\
+		is_smth2.o		\
+		operands2.o
 
 FLAGS = -Wall -Werror -Wextra
-INCLUDES = -I /includes
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) $(INCLUDES) -c $(SRC)
+	gcc $(FLAGS) -c $(SRC)
 	ar rc $(NAME) $(CMP)
 	ranlib $(NAME)
 
 clean:
-	/bin/rm -rf $(CMP)
+	$(PATH)rm -rf $(CMP)
 
 fclean: clean
-	/bin/rm -rf $(NAME)
+	$(PATH)rm -rf $(NAME)
 
 re: fclean all

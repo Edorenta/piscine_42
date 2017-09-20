@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/10 02:47:01 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/13 15:55:08 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/05 03:18:03 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/20 03:08:50 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		len(char *str)
-{
-	int	i;
+#include <stdlib.h>
 
-	i = -1;
-	while (str[++i] != '\0')
-		i++;
-	return (i);
+char	*ft_itoa(int nb)
+{
+	char	*res;
+	int		i;
+	int		dec;
+
+	dec = 1;
+	i = nb;
+	while (i /= 10)
+		dec++;
+	dec = ((nb < 0) ? ++dec : dec);
+	res = malloc(sizeof(*res) * (dec + 1));
+	if (nb < 0)
+	{
+		res[0] = '-';
+		nb = -nb;
+	}
+	res[dec--] = '\0';
+	while (nb > 9)
+	{
+		res[dec--] = (nb % 10) + 48;
+		nb /= 10;
+	}
+	res[dec--] = nb + 48;
+	return (res);
 }

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   operands.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/07 20:40:02 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/12 15:49:13 by pde-rent         ###   ########.fr       */
+/*   Created: 2017/09/10 02:10:47 by pde-rent          #+#    #+#             */
+/*   Updated: 2017/09/20 03:09:02 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_numeric(char *str)
-{
-	int i;
+int		ft_pow(int nb, int power);
 
-	i = -1;
-	while (str[++i] != '\0')
-		if (!((str[i] >= '0' && str[i] <= '9')))
-			return (0);
-	return (1);
+int		gcdr(int x, int y)
+{
+	if (x == 0)
+		return (y);
+	return (gcdr(y % x, x));
+}
+
+int		sum(int x, int y)
+{
+	return (x + y);
+}
+
+int		sub(int x, int y)
+{
+	return (x - y);
 }

@@ -10,10 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_alphanum(char c)
+int		ft_str_is_alphanum(char *str)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-			|| (c >= '0' && c <= '9'))
+	int i;
+
+	i = -1;
+	while (str[++i] != '\0')
+	if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')
+			|| (str[i] >= '0' && str[i] <= '9'))
 		return (1);
 	return (0);
+}
+
+int		ft_str_is_alpha(char *str)
+{
+	int i;
+
+	i = -1;
+	while (str[++i] != '\0')
+		if (!((str[i] >= 'a' && str[i] <= 'z')
+			|| (str[i] >= 'A' && str[i] <= 'Z')))
+			return (0);
+	return (1);
+}
+
+int		ft_str_is_numeric(char *str)
+{
+	int i;
+
+	i = -1;
+	while (str[++i] != '\0')
+		if (!((str[i] >= '0' && str[i] <= '9')))
+			return (0);
+	return (1);
 }

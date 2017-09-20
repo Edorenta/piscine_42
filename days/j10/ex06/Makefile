@@ -6,40 +6,32 @@
 #    By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/19 16:48:47 by pde-rent          #+#    #+#              #
-#    Updated: 2017/09/20 02:45:18 by pde-rent         ###   ########.fr        #
+#    Updated: 2017/09/20 02:53:47 by pde-rent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+DIR = 			/bin/
+LIB_DIR = 		srcs/
+LIB_NAME =		srcs/libop.a
 
-SRC =	srcs/ft_putchar.c	\
-		srcs/ft_putnbr.c	\
-		srcs/ft_putstr.c	\
-		srcs/ft_strcmp.c	\
-		srcs/ft_strlen.c	\
-		srcs/ft_swap.c
+NAME = 			do-op
 
-CMP =	srcs/ft_putchar.o	\
-		srcs/ft_putnbr.o	\
-		srcs/ft_putstr.o	\
-		srcs/ft_strcmp.o	\
-		srcs/ft_strlen.o	\
-		srcs/ft_swap.o
+SRC = 			do_op.c \
+				$(LIB_NAME)
 
-FLAGS = -Wall -Werror -Wextra
-INCLUDES = -I /includes
+FLAGS = 		-Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) $(INCLUDES) -c $(SRC)
-	ar rc $(NAME) $(CMP)
-	ranlib $(NAME)
+				make -C $(LIB_DIR)
+				gcc $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
-	/bin/rm -rf $(CMP)
+				make clean -C $(LIB_DIR)
 
-fclean: clean
-	/bin/rm -rf $(NAME)
+fclean: 		clean
+				make fclean -C $(LIB_DIR)
+				$(DIR)rm -rf $(NAME)
 
-re: fclean all
+re: 			fclean all
