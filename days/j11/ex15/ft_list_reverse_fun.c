@@ -6,7 +6,7 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 15:54:56 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/18 15:54:59 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/21 02:02:30 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_list_reverse_fun(t_list *begin_list)
 
 	prev_item = NULL;
 	item = begin_list;
-
 	while (item != NULL)
 	{
 		next_item = item->next;

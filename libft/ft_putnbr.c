@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ABS(x)	(x < 0) ? - x : x
-
-void	ft_putchar(char c);
+#include "libft_light.h"
 
 void	ft_putnbr(int nb)
 {

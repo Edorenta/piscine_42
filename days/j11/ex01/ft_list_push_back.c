@@ -6,7 +6,7 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 15:54:09 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/18 18:02:04 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/21 01:53:13 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_list_push_back(t_list **begin_list, void *data)
 {
 	t_list	*item;
 
-	item = *begin_list;
-	if (item)
+	if (*begin_list)
 	{
+		item = *begin_list;
 		while (item->next)
 			item = item->next;
 		item->next = ft_create_elem(data);

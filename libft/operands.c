@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_light.h"
+
 int		ft_pow(int nb, int power);
 
 int		gcdr(int x, int y)

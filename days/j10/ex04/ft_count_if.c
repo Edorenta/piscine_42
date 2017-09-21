@@ -13,6 +13,7 @@
 int		ft_count_if(char **tab, int (*f)(char*))
 {
 	int i;
+	int j;
 
 	i = -1;
 	j = 0;

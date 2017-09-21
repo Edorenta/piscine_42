@@ -6,7 +6,9 @@
     "files.associations": {
         "unistd.h": "c",
         "stdlib.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "*.a": "c",
+        "string.h": "c"
     },
 
 }

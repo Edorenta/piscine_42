@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft_light.h"
 
 char	**ft_split_whitespaces(char *str);
 int		is_delimiter(char c);

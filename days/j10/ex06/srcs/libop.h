@@ -6,12 +6,14 @@
 /*   By: pde-rent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 17:31:48 by pde-rent          #+#    #+#             */
-/*   Updated: 2017/09/20 03:17:55 by pde-rent         ###   ########.fr       */
+/*   Updated: 2017/09/20 23:24:23 by pde-rent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBOP_H
 # define LIBOP_H
+
+# include <unistd.h>
 
 # define SUM(x, y) ((x) + (y))
 # define SUB(x, y) ((x) - (y))
@@ -19,13 +21,6 @@
 # define DIV(x, y) ((x) / (y))
 # define MOD(x, y) ((x) % (y))
 # define ABS(x) ((x > 0) ? x : -x)
-# define MAX(x, y) ((x) < (y) ? (y) : (x))
-# define MIN(x, y) ((x) < (y) ? (x) : (y))
-# define MEAN(x, y) (((x) + (y)) / 2)
-# define EVEN(x) (((x % 2) != 0) ? FALSE : TRUE)
-# define CONCAT(x, y) x##y
-# define TRUE 1
-# define FALSE 0
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);

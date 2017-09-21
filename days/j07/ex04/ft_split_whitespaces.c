@@ -12,17 +12,16 @@
 
 #include <stdlib.h>
 
+void	init(int *i, int *j, int *k);
 char	**ft_split_whitespaces(char *str);
 int		is_delimiter(char c);
 int		nb_words(char *str);
-void	init(int *i, int *j, int *k);
 
 char	**ft_split_whitespaces(char *str)
 {
 	char	**dest;
 	int		i;
 	int		j;
-	int		k;
 
 	init(&i, &j, &k);
 	while (str[i] != '\0')

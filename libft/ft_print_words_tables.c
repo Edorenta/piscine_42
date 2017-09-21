@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "libft_light.h"
 
 void	ft_print_words_tables(char **tab)
 {

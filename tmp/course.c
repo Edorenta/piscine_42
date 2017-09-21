@@ -8,7 +8,7 @@ typedef struct s_bonhomme
     int porte_casquette;
 }               t_bonhomme; //t_bonhoome = struct s_bonhomme
 
-int main
+int main()
 {
     t_bonhomme Dario;
     Dario.yeux = "verts";
@@ -17,7 +17,7 @@ int main
     return (0);
 }
 
-int main
+int main()
 {
     t_bonhomme *Dario;
     Dario = malloc(sizeof(*t_bonhomme));

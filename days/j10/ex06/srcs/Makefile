@@ -14,7 +14,6 @@ PATH = /bin/
 NAME = libop.a
 
 SRC = 	ft_atoi.c		\
-		ft_itoa.c		\
 		ft_pow.c		\
 		ft_putchar.c	\
 		ft_putnbr.c		\
@@ -25,7 +24,6 @@ SRC = 	ft_atoi.c		\
 		operands2.c
 
 CMP = 	ft_atoi.o		\
-		ft_itoa.o		\
 		ft_pow.o		\
 		ft_putchar.o	\
 		ft_putnbr.o		\
